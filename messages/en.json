@@ -1,0 +1,61 @@
+{
+  "Header": {
+    "homeLink": "Home",
+    "aboutLink": "About",
+    "galleryLink": "Gallery",
+    "contactLink": "Contact",
+    "homeLinkMobile": "Home",
+    "aboutLinkMobile": "About",
+    "galleryLinkMobile": "Gallery",
+    "contactLinkMobile": "Contact"
+  },
+  "LanguageSwitcher": {
+    "language": ["English", "Indonesian", "Arabic"],
+    "englishButton": "English",
+    "indonesianButton": "Indonesian",
+    "arabicButton": "Arabic",
+    "englishButtonMobile": "English",
+    "indonesianButtonMobile": "Indonesian",
+    "arabicButtonMobile": "Arabic"
+  },
+  "Home": {
+    "companyTitle": "Sinar Niaga Group",
+    "companyDescription": "We are a supplier of briquettes and charcoal in Indonesia. Through our dedicated production and quality control team who tirelessly work to provide the best quality briquettes and charcoal expected by our clients.",
+    "order": "Order Now"
+  },
+  "About": {
+    "aboutTitle": "5 Reasons Why Our Product Must You Buy",
+    "reason1Title": "1. About",
+    "reason1Description": "We are a leading export company dedicated to providing high quality charcoal and briquette products, sustainably made and meticulously to meet the diverse needs of our customers.",
+    "reason2Title": "2. Integrity",
+    "reason2Description": "Stick to the principles and meet the standards and quality desired by buyers.",
+    "reason3Title": "3. Quality",
+    "reason3Description": "Quality is generated in many ways by supporting pleasant products and services to customers as well as building a good working environment.",
+    "reason4Title": "4. Commitment",
+    "reason4Description": "We will continue to provide the best service to our customers at all times.",
+    "reason5Title": "5. Innovation",
+    "reason5Description": "Develop products and services that have high appeal in the market and strengthen customer preferences."
+  },
+  "Gallery": {
+    "galleryTitle": "Our Gallery",
+    "gallerySubtitle": "Some of our documentation",
+    "galleryDescription": "Discover the difference! Through captivating visuals, we demonstrate our eco-friendly charcoal production methods, the effectiveness of our products, and the lasting benefits we bring to the environment and local communities.",
+    "charcoalCollection": "Our Charcoal Products Collection",
+    "charcoalBbqTitle": "CHARCOAL BBQ BRIQUETTES",
+    "charcoalBbqText": "These charcoal briquettes are made from various materials such as sawdust and coconut shells",
+    "hardwoodTitle": "HARDWOOD CHARCOAL",
+    "hardwoodText": "Our wood charcoal is made from selected wood, ranging from halaban wood, mahogany wood, tamarind wood or can also be mixed with other hardwoods.",
+    "coconutTitle": "COCONUT SHELL CHARCOAL",
+    "coconutText": "Our coconut shell charcoal is a material that can be used for various types of needs.",
+    "briquetteTitle": "CHARCOAL BRIQUETTES",
+    "briquetteText": "These charcoal briquettes are made from various materials such as sawdust and coconut shells"
+  },
+  "Contact": {
+    "interested": "Interested? Please Contact Us",
+    "nameLabel": "First Name",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone Number",
+    "messageLabel": "Message",
+    "sendMessage": "Send Me Message"
+  }
+}

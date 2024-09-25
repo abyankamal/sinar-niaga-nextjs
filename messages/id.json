@@ -1,0 +1,48 @@
+{
+  "Header": {
+    "homeLink": "Beranda",
+    "aboutLink": "Tentang",
+    "galleryLink": "Galeri",
+    "contactLink": "Kontak",
+    "homeLinkMobile": "Beranda",
+    "aboutLinkMobile": "Tentang",
+    "galleryLinkMobile": "Galeri",
+    "contactLinkMobile": "Kontak"
+  },
+  "LanguageSwitcher": {
+    "language": ["Inggris", "Indonesia", "Arab"],
+    "englishButton": "Inggris",
+    "indonesianButton": "Indonesia",
+    "arabicButton": "Arab",
+    "englishButtonMobile": "Inggris",
+    "indonesianButtonMobile": "Indonesia",
+    "arabicButtonMobile": "Arab"
+  },
+  "Home": {
+    "companyTitle": "Sinar Niaga Group",
+    "companyDescription": "Kami adalah pemasok briket dan arang di Indonesia. Melalui tim produksi dan kontrol kualitas kami yang berdedikasi, yang bekerja tanpa lelah untuk menyediakan briket dan arang berkualitas terbaik yang diharapkan oleh klien kami.",
+    "order": "Pesan Sekarang"
+  },
+  "Gallery": {
+    "galleryTitle": "Galeri Kami",
+    "gallerySubtitle": "Beberapa dokumentasi kami",
+    "galleryDescription": "Temukan perbedaannya! Melalui visual yang memikat, kami menunjukkan metode produksi arang ramah lingkungan kami, efektivitas produk kami, dan manfaat jangka panjang yang kami bawa ke lingkungan dan masyarakat lokal.",
+    "charcoalCollection": "Koleksi Produk Arang Kami",
+    "charcoalBbqTitle": "ARANG BRIKET BBQ",
+    "charcoalBbqText": "Briket arang ini terbuat dari berbagai bahan seperti serbuk gergaji dan tempurung kelapa",
+    "hardwoodTitle": "ARANG KAYU KERAS",
+    "hardwoodText": "Arang kayu kami terbuat dari kayu pilihan, mulai dari kayu halaban, kayu mahoni, kayu jawa atau bisa juga dicampur dengan kayu keras lainnya.",
+    "coconutTitle": "ARANG TEMPURUNG KELAPA",
+    "coconutText": "Arang batok kelapa kami merupakan bahan yang dapat digunakan untuk berbagai jenis kebutuhan.",
+    "briquetteTitle": "ARANG BRIKET",
+    "briquetteText": "Briket arang berbentuk kubus yang terbuat dari batok kelapa dan bahan-bahan alami yang digunakan untuk membakar Sisha"
+  },
+  "Contact": {
+    "intrested": "Anda Tertarik ? Bisa Banget Hubungi Kita",
+    "nameLabel": "Nama",
+    "emailLabel": "Email",
+    "phoneLabel": "Nomor Telepon",
+    "messageLabel": "Pesan",
+    "sendMessage": "Kirimkan Saya Pesan"
+  }
+}
