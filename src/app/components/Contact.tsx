@@ -1,4 +1,5 @@
 import arang from "@/app/public/arang.jpg";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import PhoneInputWithCountrySelect, {
   formatPhoneNumber,
@@ -10,6 +11,7 @@ import "react-phone-number-input/style.css";
 export default function Contact() {
   const [number, setNumber] = useState<string>();
   const [isHover, setIsHover] = useState<boolean>(true);
+  const t = useTranslations("Contact");
 
   const onHover = () => {
     setIsHover(!isHover);
@@ -33,13 +35,13 @@ export default function Contact() {
             className="text-white text-2xl lg:text-5xl font-lato font-semibold pb-8"
             id="intrested"
           >
-            Intrested ? Please Contact Us
+            {t("intrested")}
           </h3>
           <form id="contact-form" method="post">
             <div className="bg-white rounded-lg shadow-2xl py-4 px-10 lg:w-1/2">
               <div className="mb-4">
                 <label className="block text-left text-sm font-medium leading-6 text-gray-900">
-                  First Name
+                  {t("nameLabel")}
                 </label>
                 <div className="mt-2">
                   <input
@@ -47,13 +49,13 @@ export default function Contact() {
                     name="name"
                     id="name"
                     className="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    placeholder="First Name"
+                    placeholder={t("nameLabel")}
                   />
                 </div>
               </div>
               <div className="mb-4">
                 <label className="block text-left text-sm font-medium leading-6 text-gray-900">
-                  Email
+                  {t("emailLabel")}
                 </label>
                 <div className="mt-2">
                   <input
@@ -66,7 +68,7 @@ export default function Contact() {
                 </div>
               </div>
               <label className="block text-left text-sm font-medium leading-6 text-gray-900">
-                Phone Number
+                {t("phoneLabel")}
               </label>
               <div className="mb-4 mt-2">
                 <PhoneInputWithCountrySelect
@@ -77,14 +79,14 @@ export default function Contact() {
                 />
               </div>
               <label className="block text-left text-sm font-medium leading-6 text-gray-900">
-                Message
+                {t("messageLabel")}
               </label>
               <div className="mb-4">
                 <div className="mt-2">
                   <textarea
                     name="message"
                     id="message"
-                    placeholder="Message"
+                    placeholder={t("messageLabel")}
                     className="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   ></textarea>
                 </div>
@@ -95,7 +97,7 @@ export default function Contact() {
                   className="w-full transition ease-in-out hover:-translate-y-1 hover:scale-100 rounded-sm bg-black px-4 py-2 lg:px-6 lg:py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
                 >
                   <p className="font-lato" id="sendMessage">
-                    Send Me Message
+                    {t("sendMessage")}
                   </p>
                 </button>
               </div>
@@ -146,7 +148,7 @@ export default function Contact() {
             className="hidden lg:contents contact-text"
             id="contactUs"
           >
-            {isHover ? "Contact Us" : "Whatsapp Contact"}
+            {isHover ? t("contactUs") : t("whatsappContact")}
           </span>
         </a>
       </div>

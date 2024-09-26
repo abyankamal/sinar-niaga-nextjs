@@ -3,15 +3,17 @@ import arangcharcoal from "@/app/public/arangcharcoal.jpg";
 import arangkelapa from "@/app/public/arangkelapa.jpg";
 import arangkayu from "@/app/public/arangkayu.jpg";
 import arangbbq from "@/app/public/arangbbq.jpg";
+import { useTranslations } from "next-intl";
 
 export default function Gallery() {
+  const t = useTranslations("Gallery");
   return (
     <>
       <h3
         className="text-black text-2xl text-center lg:text-5xl font-lato font-bold pb-8"
         id="product"
       >
-        Our Charcoal Products Collection
+        {t("product")}
       </h3>
       <div className="grid grid-flow-row lg:grid-flow-col lg:grid-cols-3 gap-y-4 p-4 lg:p-16 mx-auto">
         <div className="bg-white rounded-lg shadow-2xl mx-auto overflow-hidden hover:overflow-visible transform transition-transform duration-500 hover:-translate-y-4 lg:hover:-translate-y-12">
@@ -26,7 +28,7 @@ export default function Gallery() {
                 className="text-black text-sm uppercase font-bold font-lato tracking-wider"
                 id="charcoalBbqTitle"
               >
-                CHARCOAL BBQ BRIQUETTES
+                {t("charcoalBbqTitle")}
               </p>
             </div>
           </div>
@@ -34,8 +36,7 @@ export default function Gallery() {
             className="text-black text-justify text-balance py-4 mx-auto w-48 lg:w-64"
             id="charcoalBbqText"
           >
-            These charcoal briquettes are made from various materials such as
-            sawdust and coconut shells
+            {t("charcoalBbqText")}
           </p>
         </div>
         <div className="bg-white text-black rounded-lg shadow-2xl mx-auto overflow-hidden hover:overflow-visible transform transition-transform duration-500 hover:-translate-y-4 lg:hover:-translate-y-12">
@@ -50,7 +51,7 @@ export default function Gallery() {
                 className="text-sm uppercase font-bold font-lato tracking-wider"
                 id="hardwoodTitle"
               >
-                HARDWOOD CHARCOAL
+                {t("hardwoodTitle")}
               </p>
             </div>
           </div>
@@ -58,9 +59,7 @@ export default function Gallery() {
             className="text-justify text-balance py-4 mx-auto w-48 lg:w-64"
             id="hardwoodText"
           >
-            Our wood charcoal is made from selected wood, ranging from halaban
-            wood, mahogany wood, tamarind wood or can also be mixed with other
-            hardwoods.
+            {t("hardwoodText")}
           </p>
         </div>
         <div className="bg-white text-black rounded-lg shadow-2xl mx-auto overflow-hidden hover:overflow-visible transform transition-transform duration-500 hover:-translate-y-4 lg:hover:-translate-y-12">
@@ -75,7 +74,7 @@ export default function Gallery() {
                 className="text-sm uppercase font-bold font-lato tracking-wider"
                 id="coconutTitle"
               >
-                COCONUT SHELL CHARCOAL
+                {t("coconutTitle")}
               </p>
             </div>
           </div>
@@ -83,8 +82,7 @@ export default function Gallery() {
             className="text-justify text-balance py-4 mx-auto w-48 lg:w-64"
             id="coconutText"
           >
-            Our coconut shell charcoal is a material that can be used for
-            various types of needs.
+            {t("coconutText")}
           </p>
         </div>
       </div>
@@ -101,7 +99,7 @@ export default function Gallery() {
                 className="text-sm uppercase font-bold font-lato tracking-wider text-black"
                 id="briquetteTitle"
               >
-                CHARCOAL BRIQUETTES
+                {t("briquetteTitle")}
               </p>
             </div>
           </div>
@@ -109,8 +107,7 @@ export default function Gallery() {
             className="text-black text-justify text-balance py-4 mx-auto w-48 lg:w-64"
             id="briquetteText"
           >
-            Charcoal briquettes in the form of cubes are made from coconut
-            shells and natural ingredients used to burn sisha
+            {t("briquetteText")}
           </p>
         </div>
       </div>

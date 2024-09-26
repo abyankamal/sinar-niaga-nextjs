@@ -37,6 +37,7 @@
     "reason5Description": "Develop products and services that have high appeal in the market and strengthen customer preferences."
   },
   "Gallery": {
+    "product": "Our Charcoal Products Collection",
     "galleryTitle": "Our Gallery",
     "gallerySubtitle": "Some of our documentation",
     "galleryDescription": "Discover the difference! Through captivating visuals, we demonstrate our eco-friendly charcoal production methods, the effectiveness of our products, and the lasting benefits we bring to the environment and local communities.",
@@ -56,6 +57,8 @@
     "emailLabel": "Email",
     "phoneLabel": "Phone Number",
     "messageLabel": "Message",
-    "sendMessage": "Send Me Message"
+    "sendMessage": "Send Me Message",
+    "contactUs": "Contact Us",
+    "whatsappContact": "Whatsapp Contact"
   }
 }

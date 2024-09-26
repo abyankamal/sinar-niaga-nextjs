@@ -23,7 +23,24 @@
     "companyDescription": "Kami adalah pemasok briket dan arang di Indonesia. Melalui tim produksi dan kontrol kualitas kami yang berdedikasi, yang bekerja tanpa lelah untuk menyediakan briket dan arang berkualitas terbaik yang diharapkan oleh klien kami.",
     "order": "Pesan Sekarang"
   },
+  "About": {
+    "aboutTitle": "5 Alasan Mengapa Anda Harus Membeli Produk Kami",
+    "reason1Title": "1. Tentang",
+    "reason1Description": "Kami adalah perusahaan ekspor terkemuka yang berdedikasi untuk menyediakan produk arang dan batubara berkualitas tinggi, yang dibuat secara berkelanjutan dan hati-hati untuk memenuhi kebutuhan beragam pelanggan kami.",
+    "reason2Title": "2. Integritas",
+    "reason2Description": "Mematuhi prinsip-prinsip dan memenuhi standar serta kualitas yang dibutuhkan oleh pembeli.",
+    "reason3Title": "3. Kualitas",
+    "reason3Description": "Kualitas dicapai dengan berbagai cara, seperti mendukung produk dan layanan yang menyenangkan bagi pelanggan serta membangun lingkungan kerja yang baik.",
+    "reason4Title": "4. Komitmen",
+    "reason4Description": "Kami akan terus memberikan pelayanan terbaik kepada pelanggan kami setiap saat.",
+    "reason5Title": "5. Inovasi",
+    "reason5Description": "Mengembangkan produk dan layanan dengan daya tarik pasar yang tinggi serta meningkatkan preferensi pelanggan.",
+    "galleryTitle": "Galeri Kami",
+    "gallerySubtitle": "Beberapa Dokumentasi Kami",
+    "galleryDescription": "Rasakan perbedaannya! Melalui visual yang memukau, kami menunjukkan metode produksi arang yang ramah lingkungan, efektivitas produk kami, dan manfaat berkelanjutan yang kami tawarkan untuk lingkungan dan komunitas lokal."
+  },
   "Gallery": {
+    "product": "Koleksi Produk Arang Kami",
     "galleryTitle": "Galeri Kami",
     "gallerySubtitle": "Beberapa dokumentasi kami",
     "galleryDescription": "Temukan perbedaannya! Melalui visual yang memikat, kami menunjukkan metode produksi arang ramah lingkungan kami, efektivitas produk kami, dan manfaat jangka panjang yang kami bawa ke lingkungan dan masyarakat lokal.",
@@ -43,6 +60,8 @@
     "emailLabel": "Email",
     "phoneLabel": "Nomor Telepon",
     "messageLabel": "Pesan",
-    "sendMessage": "Kirimkan Saya Pesan"
+    "sendMessage": "Kirimkan Saya Pesan",
+    "contactUs": "Hubungi Kami",
+    "whatsappContact": "Kontak Whatsapp"
   }
 }

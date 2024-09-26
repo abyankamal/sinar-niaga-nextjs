@@ -5,16 +5,19 @@ import ChangeLanguage from "./ChangeLanguage";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "@/app/public/logo.png";
+import { useTranslations } from "next-intl";
 
 export default function Header() {
   const navigation = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Product", href: "#product" },
-    { name: "Contact", href: "#contact" },
+    { name: "homeLink", href: "#home" },
+    { name: "aboutLink", href: "#about" },
+    { name: "galleryLink", href: "#gallery" },
+    { name: "contactLink", href: "#contact" },
   ];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const t = useTranslations("Header");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +60,7 @@ export default function Header() {
               href={item.href}
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              {item.name}
+              {t(item.name)}
             </Link>
           ))}
         </div>
@@ -95,7 +98,7 @@ export default function Header() {
                     href={item.href}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    {item.name}
+                    {t(item.name)}
                   </a>
                 ))}
               </div>
