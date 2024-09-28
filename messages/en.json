@@ -34,7 +34,11 @@
     "reason4Title": "4. Commitment",
     "reason4Description": "We will continue to provide the best service to our customers at all times.",
     "reason5Title": "5. Innovation",
-    "reason5Description": "Develop products and services that have high appeal in the market and strengthen customer preferences."
+    "reason5Description": "Develop products and services that have high appeal in the market and strengthen customer preferences.",
+    "product": "Our Charcoal Products Collection",
+    "galleryTitle": "Our Gallery",
+    "gallerySubtitle": "Some of our documentation",
+    "galleryDescription": "Discover the difference! Through captivating visuals, we demonstrate our eco-friendly charcoal production methods, the effectiveness of our products, and the lasting benefits we bring to the environment and local communities."
   },
   "Gallery": {
     "product": "Our Charcoal Products Collection",
@@ -52,7 +56,7 @@
     "briquetteText": "These charcoal briquettes are made from various materials such as sawdust and coconut shells"
   },
   "Contact": {
-    "interested": "Interested? Please Contact Us",
+    "intrested": "Interested? Please Contact Us",
     "nameLabel": "First Name",
     "emailLabel": "Email",
     "phoneLabel": "Phone Number",

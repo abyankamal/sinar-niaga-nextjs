@@ -1,5 +1,6 @@
 import arang from "@/app/public/arang.jpg";
 import { useTranslations } from "next-intl";
+import { format } from "path";
 import { useState } from "react";
 import PhoneInputWithCountrySelect, {
   formatPhoneNumber,
@@ -12,6 +13,60 @@ export default function Contact() {
   const [number, setNumber] = useState<string>();
   const [isHover, setIsHover] = useState<boolean>(true);
   const t = useTranslations("Contact");
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<string>("");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(number);
+
+    if (!formData.name || !formData.email || !number || !formData.message) {
+      setError("All fields are required.");
+      return;
+    }
+
+    if (!isValidPhoneNumber(number || "")) {
+      setError("Please enter a valid phone number.");
+      return;
+    }
+
+    try {
+      // Send data to API route for Resend email sending
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phoneNumber: formatPhoneNumberIntl(number),
+          message: formData.message,
+        }),
+      });
+      console.log(formData);
+      console.log(response);
+
+      if (response.ok) {
+        setSuccess("Your message has been sent successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        setNumber("");
+      } else {
+        setError("Failed to send the message. Please try again later.");
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("An unexpected error occurred.");
+      }
+    }
+  };
 
   const onHover = () => {
     setIsHover(!isHover);
@@ -37,7 +92,7 @@ export default function Contact() {
           >
             {t("intrested")}
           </h3>
-          <form id="contact-form" method="post">
+          <form id="contact-form" onSubmit={handleSubmit} method="post">
             <div className="bg-white rounded-lg shadow-2xl py-4 px-10 lg:w-1/2">
               <div className="mb-4">
                 <label className="block text-left text-sm font-medium leading-6 text-gray-900">
@@ -48,6 +103,10 @@ export default function Contact() {
                     type="text"
                     name="name"
                     id="name"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder={t("nameLabel")}
                   />
@@ -62,6 +121,10 @@ export default function Contact() {
                     type="email"
                     name="email"
                     id="email"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="you@example.com"
                   />
@@ -87,6 +150,10 @@ export default function Contact() {
                     name="message"
                     id="message"
                     placeholder={t("messageLabel")}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   ></textarea>
                 </div>
@@ -137,9 +204,9 @@ export default function Contact() {
             ></path>
             <path
               fill="#fff"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
           <span
