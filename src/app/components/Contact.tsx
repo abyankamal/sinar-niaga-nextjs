@@ -1,9 +1,7 @@
 import arang from "@/app/public/arang.jpg";
 import { useTranslations } from "next-intl";
-import { format } from "path";
 import { useState } from "react";
 import PhoneInputWithCountrySelect, {
-  formatPhoneNumber,
   formatPhoneNumberIntl,
   isValidPhoneNumber,
 } from "react-phone-number-input";
@@ -49,8 +47,6 @@ export default function Contact() {
           message: formData.message,
         }),
       });
-      console.log(formData);
-      console.log(response);
 
       if (response.ok) {
         setSuccess("Your message has been sent successfully!");
