@@ -1,28 +1,31 @@
-import EmailTemplate from "@/app/components/EmailTemplate";
-import { NextApiRequest, NextApiResponse } from "next";
+"use server";
+
 import { Resend } from "resend";
+import { z } from "zod";
+import EmailTemplate from "@/app/components/EmailTemplate";
+import { FormDataSchema } from "@/app/lib/schema";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
+export const send = async (emailFormData: z.infer<typeof FormDataSchema>) => {
   try {
-    const { name, email, message } = req.body;
-    const { data, error } = await resend.emails.send({
-      from: `${name} <${email}>`,
+    // TODO: Add this emailFormData to some database
+
+    const { error } = await resend.emails.send({
+      from: `Acme <${emailFormData.email}>`,
       to: ["abyankamal8@gmail.com"],
-      subject: "Hello world",
-      react: EmailTemplate({ name: name, email: email, message: message }),
+      subject: "Welcome",
+      react: EmailTemplate({
+        name: emailFormData.name,
+        email: emailFormData.email,
+        message: emailFormData.message,
+      }),
     });
 
     if (error) {
-      return Response.json({ error }, { status: 500 });
+      throw error;
     }
-
-    return Response.json(data);
-  } catch (error) {
-    return Response.json({ error }, { status: 500 });
+  } catch (e) {
+    throw e;
   }
-}
+};

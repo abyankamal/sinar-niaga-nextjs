@@ -2,53 +2,40 @@
 import arang from "@/app/public/arang.jpg";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { FormDataSchema } from "../lib/schema";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { send } from "../api/send/route";
 
 export default function Contact() {
   const [isHover, setIsHover] = useState<boolean>(true);
   const t = useTranslations("Contact");
-  const [error, setError] = useState<string>("");
-  const [success, setSuccess] = useState<string>("");
+  type Inputs = z.infer<typeof FormDataSchema>;
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm<Inputs>({
+    resolver: zodResolver(FormDataSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
   });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  //   console.log(watch('name'))
+  //   console.log('rendering')
 
-    if (!formData.name || !formData.email || !formData.message) {
-      setError("All fields are required.");
-      return;
-    }
-
-    try {
-      // Send data to API route for Resend email sending
-      const response = await fetch("/api/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      });
-
-      if (response.ok) {
-        setSuccess("Your message has been sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setError("Failed to send the message. Please try again later.");
-      }
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("An unexpected error occurred.");
-      }
-    }
-  };
+  function onSubmit(values: z.infer<typeof FormDataSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    send(values);
+  }
 
   const onHover = () => {
     setIsHover(!isHover);
@@ -74,7 +61,11 @@ export default function Contact() {
           >
             {t("intrested")}
           </h3>
-          <form id="contact-form" onSubmit={handleSubmit} method="post">
+          <form
+            id="contact-form"
+            onSubmit={handleSubmit(onSubmit)}
+            method="post"
+          >
             <div className="bg-white rounded-lg shadow-2xl py-4 px-10 lg:w-1/2">
               <div className="mb-4">
                 <label className="block text-left text-sm font-medium leading-6 text-gray-900">
@@ -83,12 +74,8 @@ export default function Contact() {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="name"
                     id="name"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    {...register("name")}
                     className="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder={t("nameLabel")}
                   />
@@ -101,12 +88,8 @@ export default function Contact() {
                 <div className="mt-2">
                   <input
                     type="email"
-                    name="email"
                     id="email"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    {...register("email")}
                     className="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="you@example.com"
                   />
@@ -118,13 +101,9 @@ export default function Contact() {
               <div className="mb-4">
                 <div className="mt-2">
                   <textarea
-                    name="message"
                     id="message"
                     placeholder={t("messageLabel")}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    {...register("message")}
                     className="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   ></textarea>
                 </div>
