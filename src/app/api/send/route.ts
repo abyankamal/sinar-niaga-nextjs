@@ -9,12 +9,12 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
     return res.status(405).json({ error: "Method not allowed" });
   }
   try {
-    const { name, email, phoneNumber, message } = req.body;
+    const { name, email, message } = req.body;
     const { data, error } = await resend.emails.send({
-      from: "Acme <onboarding@resend.dev>",
-      to: ["delivered@resend.dev"],
+      from: `${name} <${email}>`,
+      to: ["abyankamal8@gmail.com"],
       subject: "Hello world",
-      react: EmailTemplate({ name, email, phoneNumber, message }),
+      react: EmailTemplate({ name: name, email: email, message: message }),
     });
 
     if (error) {

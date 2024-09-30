@@ -12,14 +12,12 @@ import {
 interface EmailTemplateProps {
   name: string;
   email: string;
-  phoneNumber: string;
   message: string;
 }
 
 const EmailTemplate: React.FC<EmailTemplateProps> = ({
   name,
   email,
-  phoneNumber,
   message,
 }) => (
   <Html>
@@ -29,7 +27,6 @@ const EmailTemplate: React.FC<EmailTemplateProps> = ({
         <Section>
           <Text>Name: {name}</Text>
           <Text>Email: {email}</Text>
-          <Text>Phone Number: {phoneNumber}</Text>
           <Text>Message:</Text>
           <Text>{message}</Text>
         </Section>

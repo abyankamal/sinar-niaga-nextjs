@@ -1,14 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import arang from "@/app/public/arang.jpg";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import PhoneInputWithCountrySelect, {
-  formatPhoneNumberIntl,
-  isValidPhoneNumber,
-} from "react-phone-number-input";
-import "react-phone-number-input/style.css";
 
 export default function Contact() {
-  const [number, setNumber] = useState<string>();
   const [isHover, setIsHover] = useState<boolean>(true);
   const t = useTranslations("Contact");
   const [error, setError] = useState<string>("");
@@ -17,41 +12,32 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     message: "",
   });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(number);
 
-    if (!formData.name || !formData.email || !number || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message) {
       setError("All fields are required.");
-      return;
-    }
-
-    if (!isValidPhoneNumber(number || "")) {
-      setError("Please enter a valid phone number.");
       return;
     }
 
     try {
       // Send data to API route for Resend email sending
-      const response = await fetch("/api/send-email", {
+      const response = await fetch("/api/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          phoneNumber: formatPhoneNumberIntl(number),
           message: formData.message,
         }),
       });
 
       if (response.ok) {
         setSuccess("Your message has been sent successfully!");
-        setFormData({ name: "", email: "", phone: "", message: "" });
-        setNumber("");
+        setFormData({ name: "", email: "", message: "" });
       } else {
         setError("Failed to send the message. Please try again later.");
       }
@@ -125,17 +111,6 @@ export default function Contact() {
                     placeholder="you@example.com"
                   />
                 </div>
-              </div>
-              <label className="block text-left text-sm font-medium leading-6 text-gray-900">
-                {t("phoneLabel")}
-              </label>
-              <div className="mb-4 mt-2">
-                <PhoneInputWithCountrySelect
-                  className="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  placeholder="Enter phone number"
-                  value={number}
-                  onChange={setNumber}
-                />
               </div>
               <label className="block text-left text-sm font-medium leading-6 text-gray-900">
                 {t("messageLabel")}
