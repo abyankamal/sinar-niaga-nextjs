@@ -48,13 +48,9 @@ export default function Contact() {
         reset(); // Reset the form fields
       } else {
         const errorData = await response.json();
-        console.debug(`Failed to send messages: ${errorData.error}`);
         toast.error("Failed to send messages!");
       }
     } catch (error) {
-      console.error(
-        "An error occurred while sending the messages. Please try again."
-      );
       toast.error("An error occurred while sending the messages!");
     }
   };
