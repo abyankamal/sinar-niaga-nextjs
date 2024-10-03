@@ -22,19 +22,19 @@ export async function POST(request: NextRequest) {
     const emailFormData: EmailFormData = FormDataSchema.parse(body);
 
     // Send the email using the Resend client
-    const { error } = await resend.emails.send({
-      from: `Acme <${emailFormData.email}>`,
+    const response = await resend.emails.send({
+      from: `${emailFormData.name} <${process.env.RESEND_FROM_EMAIL}>`,
       to: ["abyankamal8@gmail.com"],
       subject: "Welcome",
       react: EmailTemplate({
         name: emailFormData.name,
-        email: emailFormData.email,
         message: emailFormData.message,
       }),
     });
 
     // Handle error if Resend client fails to send the email
-    if (error) {
+    if (response.error) {
+      console.error("Error sending email:", response.error); // Log the error
       return NextResponse.json(
         { error: "Failed to send email" },
         { status: 500 }

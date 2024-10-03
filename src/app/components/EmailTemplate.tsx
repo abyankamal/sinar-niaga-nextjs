@@ -11,22 +11,17 @@ import {
 
 interface EmailTemplateProps {
   name: string;
-  email: string;
   message: string;
 }
 
-const EmailTemplate: React.FC<EmailTemplateProps> = ({
-  name,
-  email,
-  message,
-}) => (
+const EmailTemplate: React.FC<EmailTemplateProps> = ({ name, message }) => (
   <Html>
     <Body>
       <Container>
         <Heading>Hello, You Got A Messages from {name}</Heading>
         <Section>
           <Text>Name: {name}</Text>
-          <Text>Email: {email}</Text>
+          {/* <Text>Email: {email}</Text> */}
           <Text>Message:</Text>
           <Text>{message}</Text>
         </Section>
